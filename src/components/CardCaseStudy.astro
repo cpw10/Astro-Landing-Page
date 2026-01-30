@@ -14,6 +14,9 @@ const { caseStudy } = Astro.props
     <img
       src={ caseStudy.image }
       alt={ caseStudy.image_alt }
+      data-editable="image"
+      data-prop-src="image"
+      data-prop-alt="image_alt"
       class="drop-shadow-[0_100px_100px_rgba(0,0,0,0.5)] absolute top-[4cqb] left-8 mx-auto w-[90cqi] rounded-xl  @4xl:w-[60cqi] group-hover:scale-105 transition-transform duration-3000 ease-bs-spring transform-gpu"
       loading="lazy"
       height="1024"
@@ -27,19 +30,21 @@ const { caseStudy } = Astro.props
       <header class="flex flex-col gap-3">
 
         <!-- Title -->
-        <div class:list={["text-xs uppercase tracking-widest font-semibold text-transparent bg-clip-text bg-gradient-to-r", caseStudy.bg]} set:html={ caseStudy.sector } />
+        <div class:list={["text-xs uppercase tracking-widest font-semibold text-transparent bg-clip-text bg-gradient-to-r", caseStudy.bg]} data-editable="text" data-prop="sector" set:html={ caseStudy.sector } />
 
         <!-- Tag -->
-        <h2 class="bs-h2" set:html={ caseStudy.title } />
+        <h2 class="bs-h2" data-editable="text" data-prop="title" data-type="block" set:html={ caseStudy.title } />
 
       </header>
 
       <!-- Intro -->
-      <div class="bs-body-text flex-grow text-balance" set:html={ caseStudy.content } />
+      <div class="bs-body-text flex-grow text-balance" data-editable="text" data-prop="content" data-type="block" set:html={ caseStudy.content } />
 
       <!-- CTA -->
       <a href={ caseStudy.case_study_link } class="bs-btn inline-block self-start @4xl:mt-12">
-        { caseStudy.cta }
+        <span data-editable="text" data-prop="cta">
+          { caseStudy.cta }
+        </span>
       </a>
 
     </div>

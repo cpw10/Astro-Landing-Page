@@ -1,38 +1,107 @@
-paths:
-  uploads: public/uploads
-  static: public
+# CloudCannon Configuration for Astro Landing Page
+
+# Collections
 collections_config:
   pages:
     path: src/pages
+    name: Pages
     icon: wysiwyg
-    disable_url: false
-    disable_add: false
-    disable_add_folder: false
-    disable_file_actions: false
+    output: true
+    url: /[slug]/
+    _enabled_editors:
+      - visual
+      - content
+      - data
+    _default_editor: visual
+
   data:
     path: src/data
-    icon: data_usage
+    name: Site Settings
+    icon: settings
+    output: false
     disable_url: true
-    disable_add: false
-    disable_add_folder: false
-    disable_file_actions: false
+    _enabled_editors:
+      - data
+    _default_editor: data
+
+# Paths
+paths:
+  uploads: public/images
+  static: public
+
+# Inputs for better form UX
+_inputs:
+  title:
+    type: text
+    comment: Section or page title
+  content:
+    type: html
+    comment: Rich text content
+    options:
+      allow_resize: true
+      initial_height: 320
+  hero_title:
+    type: text
+    comment: Main hero heading
+  hero_content:
+    type: html
+    comment: Hero section content
+  image:
+    type: image
+    comment: Upload or select image
+    options:
+      paths:
+        uploads: public/images
+        dam_uploads: public/images
+  price:
+    type: number
+    comment: Pricing amount
+  services:
+    type: array
+    comment: List of services
+  pricing:
+    type: array
+    comment: Pricing tiers
+  testimonials:
+    type: array
+    comment: Customer testimonials
+  faq:
+    type: array
+    comment: FAQ items
+  case_studies:
+    type: array
+    comment: Case studies
+  clients:
+    type: array
+    comment: Client logos
+  theme_color:
+    type: color
+    comment: Site theme color
+
+# Rich text editor configuration
+_editables:
+  content:
+    format: p h1 h2 h3 h4 h5 h6
+    bold: true
+    italic: true
+    link: true
+    bulletedlist: true
+    numberedlist: true
+    removeformat: true
+    undo: true
+    redo: true
+
+# Source editor
+source_editor:
+  tab_size: 2
+  theme: monokai
+  show_gutter: true
+
+# Timezone
 timezone: Europe/Oslo
+
+# Markdown
 markdown:
   engine: commonmark
   options:
-    xhtml: false
-    breaks: false
-    linkify: false
-    typographer: false
-    spaced_lists: false
-    sentence_per_line: false
     gfm: true
-    code_block_fences: '```'
-    escape_snippets_in_code_blocks: false
-    treat_indentation_as_code: false
-    table: false
-    strikethrough: false
-    subscript: false
-    superscript: false
-    heading_ids: false
-    attributes: false

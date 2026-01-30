@@ -11,16 +11,17 @@ const { title, pricing } = Astro.props
 <section class="bs-container bs-mt-lg" id="pricing">
 
   <!-- Header -->
-  { title && <h2 class="bs-h2 text-center">{ title }</h2>}
+  { title && <h2 class="bs-h2 text-center" data-editable="text" data-prop="pricing_title">{ title }</h2>}
 
   <!-- pricing -->
-  <div class="mt-8 grid lg:grid-cols-2 gap-8 lg:gap-0">
+  <div class="mt-8 grid lg:grid-cols-2 gap-8 lg:gap-0" data-editable="array" data-prop="pricing">
 
     <!-- Item -->
 
     { pricing.map( ( item, index ) =>
 
     <article
+      data-editable="array-item"
       class:list={['@container p-6 xl:p-16 flex flex-col gap-6 h-full w-full rounded-xl overflow-hidden lg:scale-90 @xl:justify-end', index === 1 ? 'bg-white/90 text-black/90 lg:scale-none' : 'bg-bs-surface-0/90']}>
 
       <!-- Content -->
@@ -34,30 +35,31 @@ const { title, pricing } = Astro.props
           { index !== 1 && <CubeOutline height="32" width="32" />  }
 
           <!-- Title -->
-          <span>{ item.title }</span>
+          <span data-editable="text" data-prop="title">{ item.title }</span>
 
           <!-- Tag -->
           <div
             class="text-xs uppercase tracking-widest font-semibold hidden sm:block ms-auto rounded-full px-4 py-2 pb-[0.4rem] border border-bs-foreground-dark/30"
+            data-editable="text" data-prop="tag"
             set:html={ item.tag } />
 
         </h2>
 
         <!-- Intro -->
-        <div class="text-xl flex-grow mt-4 " set:html={ item.content } />
+        <div class="text-xl flex-grow mt-4" data-editable="text" data-prop="content" data-type="text" set:html={ item.content } />
 
         <!-- Services list -->
-        <ul role="list" class="flex flex-col gap-4 my-8">
+        <ul role="list" class="flex flex-col gap-4 my-8" data-editable="array" data-prop="services">
 
           { item.services.map( ({ item }) =>
 
-            <li class="flex gap-2 md:gap-3 items-center">
+            <li class="flex gap-2 md:gap-3 items-center" data-editable="array-item">
 
               <!-- Check -->
               <Check height="24" width="24" />
 
               <!-- Item -->
-              <span class="text-xl">{ item }</span>
+              <span class="text-xl" data-editable="text" data-prop="item">{ item }</span>
 
             </li>
 
@@ -69,11 +71,13 @@ const { title, pricing } = Astro.props
         <footer class="flex justify-between items-center gap-2">
 
           <!-- Price -->
-          <span class="text-4xl lg:text-5xl">£{ item.price }<span class="text-2xl hidden @md:inline-block -translate-y-1 ms-2"> / month</span></span>
+          <span class="text-4xl lg:text-5xl">£<span data-editable="text" data-prop="price">{ item.price }</span><span class="text-2xl hidden @md:inline-block -translate-y-1 ms-2"> / month</span></span>
 
           <!-- CTA button -->
           <button type="button" class="bs-btn inline-block self-start @4xl:mt-12 text-xl" onclick="demo.showModal()">
-            { item.cta }
+            <span data-editable="text" data-prop="cta">
+              { item.cta }
+            </span>
           </button>
 
         </footer>

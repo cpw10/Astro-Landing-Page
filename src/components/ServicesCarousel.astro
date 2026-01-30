@@ -11,7 +11,7 @@ const { title, services } = Astro.props
   <!-- Header -->
   <header class="bs-container flex items-center justify-between">
 
-    { title && <h2 class="bs-h2">{ title }</h2>}
+    { title && <h2 class="bs-h2" data-editable="text" data-prop="services_title">{ title }</h2>}
 
     <!-- Buttons -->
     <nav class="bs-st-button-wrapper flex justify-center gap-4">
@@ -36,19 +36,20 @@ const { title, services } = Astro.props
   </header>
 
   <!-- Slides -->
-  <div class="js-fc-swiper swiper select-none bs-mt-md">
+  <div class="js-fc-swiper swiper select-none bs-mt-md" data-editable="array" data-prop="services">
     <div class="swiper-wrapper">
 
       { services.map( item =>
 
       // Slides
 
-      <div class="swiper-slide bg-bs-surface-0 border border-bs-surface-3 rounded-xl overflow-hidden !h-auto">
+      <div class="swiper-slide bg-bs-surface-0 border border-bs-surface-3 rounded-xl overflow-hidden !h-auto" data-editable="array-item">
 
         <figure class="flex flex-col gap-6 isolate min-h-[50svh] md:min-h-[40rem] h-full">
 
           {/* BG image */}
           <img src={ item.image } alt={ item.image_alt } loading="lazy"
+            data-editable="image" data-prop-src="image" data-prop-alt="image_alt"
             class="opacity-20 md:opacity-80 rounded-xl grayscale overflow-hidden w-full h-full object-cover object-left absolute inset-0"
             height="1024" width="768" />
 
@@ -61,14 +62,16 @@ const { title, services } = Astro.props
           <figcaption class="z-10 p-6 sm:p-10 md:p-20 max-w-xl flex flex-col gap-6 h-full">
 
             {/* Title */}
-            <h2 class="bs-h2" set:html={ item.title } />
+            <h2 class="bs-h2" data-editable="text" data-prop="title" set:html={ item.title } />
 
             {/* Intro */}
-            <div class="bs-body-text text-pretty flex-1" set:html={ item.content } />
+            <div class="bs-body-text text-pretty flex-1" data-editable="text" data-prop="content" data-type="block" set:html={ item.content } />
 
             {/* Cta */}
             <button type="button" class="bs-btn inline-block self-start bs-mt-sm" onclick="demo.showModal()">
-              { item.cta }
+              <span data-editable="text" data-prop="cta">
+                { item.cta }
+              </span>
             </button>
 
           </figcaption>

@@ -9,15 +9,17 @@ const { title, faq } = Astro.props
 <section class="bs-container bs-mt-lg grid" id="faq">
 
   <!-- Title -->
-  { title && <h2 class="bs-h2 text-center md:text-left" set:html={ title } />}
+  { title && <h2 class="bs-h2 text-center md:text-left" data-editable="text" data-prop="faq_title" set:html={ title } />}
 
   <!-- FAQ -->
-  <div class="grid gap-2 bs-mt-sm">
+  <div class="grid gap-2 bs-mt-sm" data-editable="array" data-prop="faq">
 
     <!-- Item -->
     { faq.map( item =>
 
-      <DetailsAccordion question={item.question} answer={item.answer} />
+      <div data-editable="array-item">
+        <DetailsAccordion question={item.question} answer={item.answer} />
+      </div>
 
     )}
 

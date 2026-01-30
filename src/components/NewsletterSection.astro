@@ -2,7 +2,7 @@
 import Image from "astro/components/Image.astro"
 import bg_image from "../assets/theme-images/hero-image.jpg"
 
-const { newsletter } = Astro.props
+const { title, content, cta } = Astro.props
 
 ---
 
@@ -18,10 +18,10 @@ const { newsletter } = Astro.props
     <div class="z-10 p-6 md:p-10 lg:p-20 rounded-xl md:max-w-lg flex flex-col gap-6 bg-bs-surface-0/95 h-full">
 
       <!-- Title -->
-      <h2 class="bs-h2" set:html={ newsletter.title } />
+      <h2 class="bs-h2" data-editable="text" data-prop="newsletter_title" set:html={ title } />
 
       <!-- Intro -->
-      <div class="bs-body-text flex-grow" set:html={ newsletter.content } />
+      <div class="bs-body-text flex-grow" data-editable="text" data-prop="newsletter_content" data-type="block" set:html={ content } />
 
       <!-- Form -->
       <form class="flex gap-4 flex-col" action="">
@@ -39,7 +39,7 @@ const { newsletter } = Astro.props
           class="border-2 rounded-lg text-center bg-bs-surface-0 border-bs-surface-3 form-input px-4 py-3"
           placeholder="Your email">
 
-        <input type="submit" value={ newsletter.cta } class="bs-btn form-input px-4 py-3">
+        <input type="submit" value={ cta } class="bs-btn form-input px-4 py-3" data-editable="text" data-prop="newsletter_cta">
 
       </form>
 
