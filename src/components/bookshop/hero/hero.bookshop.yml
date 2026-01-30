@@ -1,0 +1,29 @@
+# Metadata about this component
+spec:
+  structures:
+    - content_blocks
+  label: Hero Section
+  description: Large hero section with title, content, and CTA
+  icon: star
+  tags: []
+
+# Defines the structure of this component
+define:
+  title: Hero Title
+  content: <p><strong>Hero content</strong> goes here</p>
+  cta: Get Started
+
+# Sets the display preview for this component
+blueprint:
+  title: Hero Title
+  content: <p><strong>A compelling hero description</strong> that engages visitors</p>
+  cta: Get Started
+
+# Any extra CloudCannon inputs configuration for fields
+_inputs:
+  title:
+    type: text
+  content:
+    type: html
+  cta:
+    type: text

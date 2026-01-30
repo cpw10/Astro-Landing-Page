@@ -1,0 +1,51 @@
+---
+import Arrow from '../../../assets/theme-images/icon-arrow.svg'
+
+const { title, faq } = Astro.props
+---
+
+<section class="bs-container bs-mt-lg grid" id="faq">
+  {title && <h2 class="bs-h2 text-center md:text-left" set:html={title} />}
+
+  <div class="grid gap-2 bs-mt-sm">
+    {faq.map(item => (
+      <details
+        name="faq"
+        class="group bg-bs-surface-2 hover:bg-bs-surface-3 open:bg-bs-surface-3 transition-colors w-full shadow-md rounded-lg bs-h3">
+        <summary class="flex gap-3 justify-between items-center p-6 py-5">
+          <span class="select-none" set:html={item.question} />
+          <span>
+            <Arrow class="opacity-60 h-4 w-4 transition -rotate-90 group-open:rotate-90 ease-bs-bounce duration-1000" height="16" width="25" />
+          </span>
+        </summary>
+        <div class="anim-wrapper max-w-none">
+          <div set:html={item.answer} class="p-6" />
+        </div>
+      </details>
+    ))}
+  </div>
+</section>
+
+<style>
+summary::-webkit-details-marker {
+  display: none
+}
+
+details {
+  @media (prefers-reduced-motion: no-preference) {
+    interpolate-size: allow-keywords;
+  }
+
+  &::details-content {
+    block-size: 0;
+    opacity: 0;
+    overflow-y: clip;
+    transition: content-visibility 1s allow-discrete, opacity 1s, block-size 1s var(--ease-bs-bounce);
+  }
+
+  &[open]::details-content {
+    block-size: auto;
+    opacity: 1;
+  }
+}
+</style>

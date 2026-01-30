@@ -1,0 +1,26 @@
+spec:
+  structures:
+    - content_blocks
+  label: Newsletter Section
+  description: Newsletter signup form
+  icon: mail
+  tags: []
+
+define:
+  title: Newsletter
+  content: <strong>Subscribe to our newsletter</strong>
+  cta: Sign up
+
+blueprint:
+  title: Sign up for our newsletter
+  content: "<strong>We have a deep commitment to keeping your data safe.</strong> We will never sell your data and will send no more than two emails a month."
+  cta: Sign up
+
+_inputs:
+  title:
+    type: text
+  content:
+    type: html
+  cta:
+    type: text
+    comment: Submit button text

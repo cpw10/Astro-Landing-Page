@@ -1,0 +1,39 @@
+spec:
+  structures:
+    - content_blocks
+  label: Clients Section
+  description: Grid of client logos
+  icon: business
+  tags: []
+
+define:
+  title: Our Clients
+  clients:
+    - title: Client Name
+      image: /content-images/logo-01.svg
+      link: https://example.com
+
+blueprint:
+  title: Trusted by some great companies
+  clients:
+    - title: Clamaane
+      image: /content-images/logo-01.svg
+      link: "https://www.blackspike.com/"
+    - title: Komplex
+      image: /content-images/logo-02.svg
+      link: "https://www.blackspike.com/"
+    - title: Splashed
+      image: /content-images/logo-03.svg
+      link: "https://www.blackspike.com/"
+
+_inputs:
+  title:
+    type: text
+  clients:
+    type: array
+  clients[*].title:
+    type: text
+  clients[*].image:
+    type: image
+  clients[*].link:
+    type: url

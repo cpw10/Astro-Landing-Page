@@ -1,0 +1,70 @@
+spec:
+  structures:
+    - content_blocks
+  label: Case Studies Section
+  description: Showcase case studies with images
+  icon: work
+  tags: []
+
+define:
+  title: Case Studies
+  case_studies:
+    - title: Project Title
+      sector: Sector
+      content: <strong>Project description</strong>
+      case_study_link: https://example.com
+      cta: View project
+      image: /content-images/case-study.avif
+      image_alt: Project image
+      bg: bg-gradient-to-r from-indigo-500 to-purple-600
+
+blueprint:
+  title: Case studies
+  case_studies:
+    - title: "Powering Growth.<br>Simplifying Success."
+      sector: Web design
+      content: "<strong>Our custom web design solution helped Biotechlet Ltd elevate its digital presence with a clean, modern interface and intuitive user experience.</strong> <br><br>The redesigned site streamlined user journeys, improved accessibility, and strengthened brand credibility."
+      case_study_link: "https://www.spike.news"
+      cta: Visit spike.news
+      image: /content-images/spike.news.avif
+      image_alt: iPad showing spike.news website
+      bg: bg-gradient-to-r from-indigo-500 to-purple-600
+    - title: "Accelerating Innovation.<br>Empowering Results."
+      sector: Development
+      content: "Our dynamic design and build simplified productivity, delivering automated solutions, seamless collaboration, and data-driven insights"
+      case_study_link: "https://pixelate.pictures"
+      cta: Visit pixelate.pictures
+      image: /content-images/pixelate.pictures.avif
+      image_alt: iPad showing pixelated wave painting
+      bg: bg-gradient-to-r from-fuchsia-500 to-cyan-500
+    - title: "Enhance productivity,<br>boost efficiency."
+      sector: 3D Design
+      content: "Create, collaborate, and render — all in one streamlined workflow. Teams are connected and producing stunning visuals in minutes."
+      case_study_link: "https://www.brighton.dog"
+      cta: Visit brighton.dog
+      image: /content-images/brighton.dog.avif
+      image_alt: iPad showing the web page of brighton.dog
+      bg: bg-gradient-to-r from-pink-500 to-yellow-500
+
+_inputs:
+  title:
+    type: text
+  case_studies:
+    type: array
+  case_studies[*].title:
+    type: html
+  case_studies[*].sector:
+    type: text
+  case_studies[*].content:
+    type: html
+  case_studies[*].case_study_link:
+    type: url
+  case_studies[*].cta:
+    type: text
+  case_studies[*].image:
+    type: image
+  case_studies[*].image_alt:
+    type: text
+  case_studies[*].bg:
+    type: text
+    comment: "Tailwind gradient class (e.g., bg-gradient-to-r from-indigo-500 to-purple-600)"

@@ -1,5 +1,101 @@
 # CloudCannon Configuration for Astro Landing Page
 
+# Bookshop Component Browser
+component_browser:
+  show_bookshop: true
+
+# Structures for page building with Bookshop
+_structures:
+  content_blocks:
+    style: modal
+    values:
+      - label: Hero
+        icon: star
+        value:
+          _bookshop_name: bookshop/hero
+          title: Hero Title
+          content: <p><strong>Hero content</strong></p>
+          cta: Get Started
+      - label: Services
+        icon: view_carousel
+        value:
+          _bookshop_name: bookshop/services
+          title: Our Services
+          items:
+            - title: Service Title
+              content: <strong>Service description</strong>
+              cta: Learn More
+              image: /content-images/blackspike-wallpaper-01.avif
+              image_alt: ""
+      - label: Pricing
+        icon: payments
+        value:
+          _bookshop_name: bookshop/pricing
+          title: Pricing Plans
+          plans:
+            - title: Basic Plan
+              tag: Most popular
+              content: Description
+              cta: Sign up
+              price: 999
+              services:
+                - item: Feature 1
+                - item: Feature 2
+      - label: Clients
+        icon: business
+        value:
+          _bookshop_name: bookshop/clients
+          title: Our Clients
+          clients:
+            - title: Client Name
+              image: /content-images/logo-01.svg
+              link: https://example.com
+      - label: Testimonials
+        icon: format_quote
+        value:
+          _bookshop_name: bookshop/testimonials
+          title: Testimonials
+          testimonials:
+            - quote: Great service!
+              handle: username
+      - label: Case Studies
+        icon: work
+        value:
+          _bookshop_name: bookshop/case_studies
+          title: Case Studies
+          case_studies:
+            - title: Project Title
+              sector: Industry
+              content: <strong>Description</strong>
+              case_study_link: https://example.com
+              cta: View project
+              image: /content-images/spike.news.avif
+              image_alt: Project image
+              bg: bg-gradient-to-r from-indigo-500 to-purple-600
+      - label: Quote
+        icon: format_quote
+        value:
+          _bookshop_name: bookshop/quote
+          content: This is a <strong>great quote</strong>
+          cite: John Doe
+          role: CEO, Company
+          image: /content-images/quote-man.avif
+      - label: FAQ
+        icon: help
+        value:
+          _bookshop_name: bookshop/faq
+          title: FAQ
+          faq:
+            - question: Sample question?
+              answer: Sample answer
+      - label: Newsletter
+        icon: mail
+        value:
+          _bookshop_name: bookshop/newsletter
+          title: Newsletter
+          content: <strong>Subscribe</strong>
+          cta: Sign up
+
 # Collections
 collections_config:
   pages:
@@ -77,6 +173,11 @@ _inputs:
   theme_color:
     type: color
     comment: Site theme color
+  content_blocks:
+    type: array
+    comment: Page sections
+    options:
+      structures: _structures.content_blocks
 
 # Rich text editor configuration
 _editables:
