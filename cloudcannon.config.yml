@@ -22,14 +22,14 @@ _structures:
       - label: Hero
         icon: star
         value:
-          _bookshop_name: bookshop/hero
+          _bookshop_name: hero
           title: Hero Title
           content: <p><strong>Hero content</strong></p>
           cta: Get Started
       - label: Services
         icon: view_carousel
         value:
-          _bookshop_name: bookshop/services
+          _bookshop_name: services
           title: Our Services
           items:
             - title: Service Title
@@ -40,7 +40,7 @@ _structures:
       - label: Pricing
         icon: payments
         value:
-          _bookshop_name: bookshop/pricing
+          _bookshop_name: pricing
           title: Pricing Plans
           plans:
             - title: Basic Plan
@@ -54,7 +54,7 @@ _structures:
       - label: Clients
         icon: business
         value:
-          _bookshop_name: bookshop/clients
+          _bookshop_name: clients
           title: Our Clients
           clients:
             - title: Client Name
@@ -63,7 +63,7 @@ _structures:
       - label: Testimonials
         icon: format_quote
         value:
-          _bookshop_name: bookshop/testimonials
+          _bookshop_name: testimonials
           title: Testimonials
           testimonials:
             - quote: Great service!
@@ -71,7 +71,7 @@ _structures:
       - label: Case Studies
         icon: work
         value:
-          _bookshop_name: bookshop/case_studies
+          _bookshop_name: case_studies
           title: Case Studies
           case_studies:
             - title: Project Title
@@ -85,7 +85,7 @@ _structures:
       - label: Quote
         icon: format_quote
         value:
-          _bookshop_name: bookshop/quote
+          _bookshop_name: quote
           content: This is a <strong>great quote</strong>
           cite: John Doe
           role: CEO, Company
@@ -93,7 +93,7 @@ _structures:
       - label: FAQ
         icon: help
         value:
-          _bookshop_name: bookshop/faq
+          _bookshop_name: faq
           title: FAQ
           faq:
             - question: Sample question?
@@ -101,7 +101,7 @@ _structures:
       - label: Newsletter
         icon: mail
         value:
-          _bookshop_name: bookshop/newsletter
+          _bookshop_name: newsletter
           title: Newsletter
           content: <strong>Subscribe</strong>
           cta: Sign up
