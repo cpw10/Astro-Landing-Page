@@ -1,32 +1,118 @@
-# CloudCannon Configuration for Astro Landing Page
-
-# Generate Bookshop component library after build for live editing
+paths:
+  uploads: public/images
+  static: public
+collections_config:
+  pages:
+    path: src/pages
+    name: Pages
+    icon: wysiwyg
+    url: /[slug]/
+    disable_url: false
+    _enabled_editors:
+      - visual
+      - content
+      - data
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+  data:
+    path: src/data
+    name: Site Settings
+    icon: settings
+    disable_url: true
+    _enabled_editors:
+      - data
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
 _enabled_editors:
   - visual
   - data
-
-postbuild:
-  - command: npx @bookshop/generate
-    label: Generate Bookshop
-
-# Bookshop Component Browser
-component_browser:
-  show_bookshop: true
-
-# Structures for page building with Bookshop
+_inputs:
+  title:
+    type: text
+    comment: Section or page title
+    cascade: true
+  content:
+    type: html
+    options:
+      allow_resize: true
+      allow_custom_markup: false
+      remove_custom_markup: false
+      initial_height: 320
+      image_size_attributes: true
+    comment: Rich text content
+    cascade: true
+  hero_title:
+    type: text
+    comment: Main hero heading
+    cascade: true
+  hero_content:
+    type: html
+    comment: Hero section content
+    cascade: true
+  image:
+    type: image
+    options:
+      paths:
+        uploads: public/images
+        dam_uploads: public/images
+    comment: Upload or select image
+    cascade: true
+  price:
+    type: number
+    comment: Pricing amount
+    cascade: true
+  services:
+    type: array
+    comment: List of services
+    cascade: true
+  pricing:
+    type: array
+    comment: Pricing tiers
+    cascade: true
+  testimonials:
+    type: array
+    comment: Customer testimonials
+    cascade: true
+  faq:
+    type: array
+    comment: FAQ items
+    cascade: true
+  case_studies:
+    type: array
+    comment: Case studies
+    cascade: true
+  clients:
+    type: array
+    comment: Client logos
+    cascade: true
+  theme_color:
+    type: color
+    comment: Site theme color
+    cascade: true
+  content_blocks:
+    type: array
+    options:
+      structures: _structures.content_blocks
+    comment: Page sections
+    cascade: true
+  $.layout:
+    hidden: true
+    cascade: true
 _structures:
   content_blocks:
     style: modal
     values:
-      - label: Hero
-        icon: star
+      - icon: star
+        label: Hero
         value:
           _bookshop_name: hero
           title: Hero Title
           content: <p><strong>Hero content</strong></p>
           cta: Get Started
-      - label: Services
-        icon: view_carousel
+      - icon: view_carousel
+        label: Services
         value:
           _bookshop_name: services
           title: Our Services
@@ -35,9 +121,9 @@ _structures:
               content: <strong>Service description</strong>
               cta: Learn More
               image: /content-images/blackspike-wallpaper-01.avif
-              image_alt: ""
-      - label: Pricing
-        icon: payments
+              image_alt: ''
+      - icon: payments
+        label: Pricing
         value:
           _bookshop_name: pricing
           title: Pricing Plans
@@ -50,8 +136,8 @@ _structures:
               services:
                 - item: Feature 1
                 - item: Feature 2
-      - label: Clients
-        icon: business
+      - icon: business
+        label: Clients
         value:
           _bookshop_name: clients
           title: Our Clients
@@ -59,16 +145,16 @@ _structures:
             - title: Client Name
               image: /content-images/logo-01.svg
               link: https://example.com
-      - label: Testimonials
-        icon: format_quote
+      - icon: format_quote
+        label: Testimonials
         value:
           _bookshop_name: testimonials
           title: Testimonials
           testimonials:
             - quote: Great service!
               handle: username
-      - label: Case Studies
-        icon: work
+      - icon: work
+        label: Case Studies
         value:
           _bookshop_name: case_studies
           title: Case Studies
@@ -81,137 +167,69 @@ _structures:
               image: /content-images/spike.news.avif
               image_alt: Project image
               bg: bg-gradient-to-r from-indigo-500 to-purple-600
-      - label: Quote
-        icon: format_quote
+      - icon: format_quote
+        label: Quote
         value:
           _bookshop_name: quote
           content: This is a <strong>great quote</strong>
           cite: John Doe
           role: CEO, Company
           image: /content-images/quote-man.avif
-      - label: FAQ
-        icon: help
+      - icon: help
+        label: FAQ
         value:
           _bookshop_name: faq
           title: FAQ
           faq:
             - question: Sample question?
               answer: Sample answer
-      - label: Newsletter
-        icon: mail
+      - icon: mail
+        label: Newsletter
         value:
           _bookshop_name: newsletter
           title: Newsletter
           content: <strong>Subscribe</strong>
           cta: Sign up
-
-# Collections
-collections_config:
-  pages:
-    path: src/pages
-    name: Pages
-    icon: wysiwyg
-    output: true
-    url: /[slug]/
-    _enabled_editors:
-      - visual
-      - content
-      - data
-    _default_editor: visual
-
-  data:
-    path: src/data
-    name: Site Settings
-    icon: settings
-    output: false
-    disable_url: true
-    _enabled_editors:
-      - data
-    _default_editor: data
-
-# Paths
-paths:
-  uploads: public/images
-  static: public
-
-# Inputs for better form UX
-_inputs:
-  title:
-    type: text
-    comment: Section or page title
-  content:
-    type: html
-    comment: Rich text content
-    options:
-      allow_resize: true
-      initial_height: 320
-  hero_title:
-    type: text
-    comment: Main hero heading
-  hero_content:
-    type: html
-    comment: Hero section content
-  image:
-    type: image
-    comment: Upload or select image
-    options:
-      paths:
-        uploads: public/images
-        dam_uploads: public/images
-  price:
-    type: number
-    comment: Pricing amount
-  services:
-    type: array
-    comment: List of services
-  pricing:
-    type: array
-    comment: Pricing tiers
-  testimonials:
-    type: array
-    comment: Customer testimonials
-  faq:
-    type: array
-    comment: FAQ items
-  case_studies:
-    type: array
-    comment: Case studies
-  clients:
-    type: array
-    comment: Client logos
-  theme_color:
-    type: color
-    comment: Site theme color
-  content_blocks:
-    type: array
-    comment: Page sections
-    options:
-      structures: _structures.content_blocks
-
-# Rich text editor configuration
 _editables:
   content:
-    format: p h1 h2 h3 h4 h5 h6
+    allow_custom_markup: false
+    remove_custom_markup: false
     bold: true
+    bulletedlist: true
+    format: p h1 h2 h3 h4 h5 h6
+    image_size_attributes: true
     italic: true
     link: true
-    bulletedlist: true
     numberedlist: true
+    redo: true
     removeformat: true
     undo: true
-    redo: true
-
-# Source editor
 source_editor:
   tab_size: 2
   theme: monokai
   show_gutter: true
-
-# Timezone
 timezone: Europe/Oslo
-
-# Markdown
 markdown:
   engine: commonmark
   options:
+    xhtml: false
+    breaks: false
+    linkify: false
+    typographer: false
+    spaced_lists: false
+    sentence_per_line: false
     gfm: true
+    code_block_fences: '```'
+    escape_snippets_in_code_blocks: false
+    treat_indentation_as_code: false
+    table: false
+    strikethrough: false
+    subscript: false
+    superscript: false
+    heading_ids: false
+    attributes: false
+postbuild:
+  - command: npx @bookshop/generate
+    label: Generate Bookshop
+component_browser:
+  show_bookshop: true
