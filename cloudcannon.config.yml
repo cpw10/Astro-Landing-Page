@@ -10,7 +10,6 @@ collections_config:
     disable_url: false
     _enabled_editors:
       - visual
-      - content
       - data
     disable_add: false
     disable_add_folder: false
