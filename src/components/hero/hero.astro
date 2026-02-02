@@ -1,7 +1,4 @@
 ---
-import Image from "astro/components/Image.astro"
-import hero_screens from "../../assets/theme-images/hero-screens.png"
-
 const { title, content, cta } = Astro.props
 ---
 
@@ -14,6 +11,6 @@ const { title, content, cta } = Astro.props
     </button>
   </div>
   <figure class="flex place-content-center -mt-20 lg:mt-0">
-    <Image src={hero_screens} format="avif" quality="high" alt="Screens showing phone, tablet and desktop views of our website" loading="eager" />
+    <img src="/theme-images/hero-screens.png" alt="Screens showing phone, tablet and desktop views of our website" loading="eager" />
   </figure>
 </section>
