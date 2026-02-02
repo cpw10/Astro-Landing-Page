@@ -3,7 +3,6 @@
 # Generate Bookshop component library after build for live editing
 _enabled_editors:
   - visual
-  - content
   - data
 
 postbuild:
