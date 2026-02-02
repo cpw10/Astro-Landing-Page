@@ -42,7 +42,7 @@ _inputs:
       initial_height: 320
       image_size_attributes: true
     comment: Rich text content
-    hidden: true
+    hidden: false
     cascade: true
   hero_title:
     type: text
@@ -104,7 +104,7 @@ _inputs:
     hidden: true
     cascade: true
   $.content_blocks[*].cta:
-    hidden: true
+    hidden: false
     cascade: true
 _structures:
   content_blocks:
