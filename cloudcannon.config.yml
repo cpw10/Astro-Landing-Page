@@ -42,6 +42,7 @@ _inputs:
       initial_height: 320
       image_size_attributes: true
     comment: Rich text content
+    hidden: true
     cascade: true
   hero_title:
     type: text
@@ -78,10 +79,12 @@ _inputs:
   faq:
     type: array
     comment: FAQ items
+    hidden: true
     cascade: true
   case_studies:
     type: array
     comment: Case studies
+    hidden: true
     cascade: true
   clients:
     type: array
@@ -98,6 +101,9 @@ _inputs:
     comment: Page sections
     cascade: true
   $.layout:
+    hidden: true
+    cascade: true
+  $.content_blocks[*].cta:
     hidden: true
     cascade: true
 _structures:
