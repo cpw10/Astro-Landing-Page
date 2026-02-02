@@ -1,10 +1,5 @@
 ---
-
-import Image from "astro/components/Image.astro"
-import hero_screens from "../assets/theme-images/hero-screens.png"
-
 const { settings, title, content } = Astro.props
-
 ---
 
 <section class="bs-container py-6 flex flex-col lg:flex-row items-center">
@@ -30,7 +25,7 @@ const { settings, title, content } = Astro.props
   <!-- Image -->
   <figure class="flex place-content-center -mt-20 lg:mt-0">
 
-    <Image src={ hero_screens } format="avif" quality="high" alt="Screens showing phone, tablet and desktop views of our website" loading="eager" />
+    <img src="/theme-images/hero-screens.png" alt="Screens showing phone, tablet and desktop views of our website" loading="eager" />
 
   </figure>
 
