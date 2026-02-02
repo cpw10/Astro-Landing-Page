@@ -1,5 +1,15 @@
 # CloudCannon Configuration for Astro Landing Page
 
+# Generate Bookshop component library after build for live editing
+_enabled_editors:
+  - visual
+  - content
+  - data
+
+postbuild:
+  - command: npx @bookshop/generate
+    label: Generate Bookshop
+
 # Bookshop Component Browser
 component_browser:
   show_bookshop: true

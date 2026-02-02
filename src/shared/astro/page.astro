@@ -20,6 +20,6 @@ Object.entries(componentImports).forEach(([path, obj]) => {
 <main>
   {contentBlocks.map((block) => {
     const Component = components[block._bookshop_name];
-    return <Component {...block} />;
+    return <Component bookshop:live {...block} />;
   })}
 </main>

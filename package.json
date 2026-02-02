@@ -17,5 +17,9 @@
     "astro": "^5.11.0",
     "swiper": "^11.2.10",
     "tailwindcss": "^4.1.11"
+  },
+  "devDependencies": {
+    "@bookshop/astro-engine": "3.17.1",
+    "@bookshop/generate": "3.17.1"
   }
 }
