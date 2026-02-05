@@ -1,0 +1,22 @@
+label: Hero Section
+icon: star
+tags: []
+
+value:
+  _name: hero
+  title: Hero Title
+  content: <p><strong>A compelling hero description</strong> that engages visitors</p>
+  cta: Get Started
+
+_inputs:
+  title:
+    type: text
+  content:
+    type: html
+  cta:
+    type: text
+
+preview:
+  text: Hero Section
+  subtext:
+    - key: title

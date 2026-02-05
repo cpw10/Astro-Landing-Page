@@ -1,0 +1,84 @@
+label: Case Studies Section
+icon: work
+tags: []
+
+value:
+  _name: case_studies
+  title: Case studies
+  case_studies:
+    - title: "Powering Growth.<br>Simplifying Success."
+      sector: Web design
+      content: "<strong>Our custom web design solution helped Biotechlet Ltd elevate its digital presence.</strong>"
+      case_study_link: "https://www.spike.news"
+      cta: Visit spike.news
+      image: /content-images/spike.news.avif
+      image_alt: iPad showing spike.news website
+      bg: bg-gradient-to-r from-indigo-500 to-purple-600
+    - title: "Accelerating Innovation.<br>Empowering Results."
+      sector: Development
+      content: "Our dynamic design and build simplified productivity, delivering automated solutions."
+      case_study_link: "https://pixelate.pictures"
+      cta: Visit pixelate.pictures
+      image: /content-images/pixelate.pictures.avif
+      image_alt: iPad showing pixelated wave painting
+      bg: bg-gradient-to-r from-fuchsia-500 to-cyan-500
+    - title: "Enhance productivity,<br>boost efficiency."
+      sector: 3D Design
+      content: "Create, collaborate, and render — all in one streamlined workflow."
+      case_study_link: "https://www.brighton.dog"
+      cta: Visit brighton.dog
+      image: /content-images/brighton.dog.avif
+      image_alt: iPad showing the web page of brighton.dog
+      bg: bg-gradient-to-r from-pink-500 to-yellow-500
+
+_inputs:
+  title:
+    type: text
+  case_studies:
+    type: array
+    options:
+      structures: _structures.case_study_item
+
+_structures:
+  case_study_item:
+    values:
+      - value:
+          title: Project Title
+          sector: Sector
+          content: <strong>Project description</strong>
+          case_study_link:
+          cta: View project
+          image:
+          image_alt:
+          bg: bg-gradient-to-r from-indigo-500 to-purple-600
+        _inputs:
+          title:
+            type: html
+          sector:
+            type: text
+          content:
+            type: html
+          case_study_link:
+            type: url
+          cta:
+            type: text
+          image:
+            type: image
+          image_alt:
+            type: text
+          bg:
+            type: text
+            comment: "Tailwind gradient class (e.g., bg-gradient-to-r from-indigo-500 to-purple-600)"
+        preview:
+          icon: work
+          image:
+            - key: image
+          text:
+            - key: title
+          subtext:
+            - key: sector
+
+preview:
+  text: Case Studies Section
+  subtext:
+    - key: title

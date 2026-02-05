@@ -1,0 +1,51 @@
+label: Clients Section
+icon: business
+tags: []
+
+value:
+  _name: clients
+  title: Trusted by some great companies
+  clients:
+    - title: Clamaane
+      image: /content-images/logo-01.svg
+      link: "https://www.blackspike.com/"
+    - title: Komplex
+      image: /content-images/logo-02.svg
+      link: "https://www.blackspike.com/"
+    - title: Splashed
+      image: /content-images/logo-03.svg
+      link: "https://www.blackspike.com/"
+
+_inputs:
+  title:
+    type: text
+  clients:
+    type: array
+    options:
+      structures: _structures.client_item
+
+_structures:
+  client_item:
+    values:
+      - value:
+          title: Client Name
+          image:
+          link:
+        _inputs:
+          title:
+            type: text
+          image:
+            type: image
+          link:
+            type: url
+        preview:
+          icon: business
+          image:
+            - key: image
+          text:
+            - key: title
+
+preview:
+  text: Clients Section
+  subtext:
+    - key: title

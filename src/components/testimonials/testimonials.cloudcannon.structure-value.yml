@@ -1,0 +1,43 @@
+label: Testimonials Section
+icon: format_quote
+tags: []
+
+value:
+  _name: testimonials
+  title: Clients love us
+  testimonials:
+    - quote: "Sent over a logo request and had a polished concept in minutes—this team is pure magic!"
+      handle: daviscarder
+    - quote: "Clicked a few buttons in the 3D design tool, and boom—my model came to life!"
+      handle: kadinwestervelt
+
+_inputs:
+  title:
+    type: text
+  testimonials:
+    type: array
+    options:
+      structures: _structures.testimonial_item
+
+_structures:
+  testimonial_item:
+    values:
+      - value:
+          quote: Great service!
+          handle: username
+        _inputs:
+          quote:
+            type: text
+          handle:
+            type: text
+        preview:
+          icon: format_quote
+          text:
+            - key: quote
+          subtext:
+            - key: handle
+
+preview:
+  text: Testimonials Section
+  subtext:
+    - key: title

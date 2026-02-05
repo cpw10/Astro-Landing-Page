@@ -1,0 +1,41 @@
+label: FAQ Section
+icon: help
+tags: []
+
+value:
+  _name: faq
+  title: Frequently Asked Questions
+  faq:
+    - question: "How secure is my design data?"
+      answer: "We use industry-standard encryption and secure storage practices to protect your creative assets."
+    - question: "Is there a free trial for design services?"
+      answer: "Yes, we offer a 14-day free trial with access to core features—no credit card required."
+
+_inputs:
+  title:
+    type: text
+  faq:
+    type: array
+    options:
+      structures: _structures.faq_item
+
+_structures:
+  faq_item:
+    values:
+      - value:
+          question: Sample question?
+          answer: Sample answer
+        _inputs:
+          question:
+            type: text
+          answer:
+            type: text
+        preview:
+          icon: question_exchange
+          text:
+            - key: question
+
+preview:
+  text: FAQ Section
+  subtext:
+    - key: title

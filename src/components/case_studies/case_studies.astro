@@ -3,12 +3,12 @@ const { title, case_studies = [] } = Astro.props
 ---
 
 <section class="bs-container bs-mt-lg" id="case-studies">
-  {title && <h2 class="bs-h2 text-center md:text-left">{title}</h2>}
+  {title && <h2 class="bs-h2 text-center md:text-left" data-editable="text" data-prop="title">{title}</h2>}
 
-  <div>
+  <div data-editable="array" data-prop="case_studies">
     {/* Case Study 1 */}
     {case_studies?.[0] && (
-      <div class="bs-mt-md">
+      <div class="bs-mt-md" data-editable="array-item">
         <div class="group @container">
           <article
             class:list={[
@@ -47,7 +47,7 @@ const { title, case_studies = [] } = Astro.props
     {/* Case studies 2 & 3 */}
     <div class="mt-8 grid lg:grid-cols-2 gap-8">
       {case_studies?.[1] && (
-        <div class="group @container">
+        <div class="group @container" data-editable="array-item">
           <article
             class:list={[
               "relative isolate flex h-full w-full gap-6 overflow-hidden rounded-xl pt-[20rem] @md:pt-[28rem] @xl:justify-end @4xl:pt-0",
@@ -82,7 +82,7 @@ const { title, case_studies = [] } = Astro.props
       )}
 
       {case_studies?.[2] && (
-        <div class="group @container">
+        <div class="group @container" data-editable="array-item">
           <article
             class:list={[
               "relative isolate flex h-full w-full gap-6 overflow-hidden rounded-xl pt-[20rem] @md:pt-[28rem] @xl:justify-end @4xl:pt-0",

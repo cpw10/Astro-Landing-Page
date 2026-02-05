@@ -3,7 +3,7 @@ const { content, image, cite, role } = Astro.props
 ---
 
 <blockquote class="bs-container bs-mt-lg font-display text-3xl md:text-5xl lg:text-6xl flex flex-col gap-6" id="quote">
-  <div set:html={content} class="text-bs-foreground-dark bs-st-quote [&_strong]:font-normal font-display" />
+  <div set:html={content} class="text-bs-foreground-dark bs-st-quote [&_strong]:font-normal font-display" data-editable="text" data-prop="content" />
 
   <cite class="not-italic flex gap-4 items-center">
     <img
@@ -13,10 +13,12 @@ const { content, image, cite, role } = Astro.props
       width="128"
       height="128"
       loading="lazy"
+      data-editable="image"
+      data-prop="image"
     />
 
     <div class="text-bs-foreground-light bs-h3">
-      {cite} <span class="text-bs-foreground-dark">{role}</span>
+      <span data-editable="text" data-prop="cite">{cite}</span> <span class="text-bs-foreground-dark" data-editable="text" data-prop="role">{role}</span>
     </div>
   </cite>
 </blockquote>

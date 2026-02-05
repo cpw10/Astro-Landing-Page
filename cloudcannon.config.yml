@@ -1,6 +1,7 @@
 paths:
   uploads: public/images
   static: public
+
 collections_config:
   pages:
     path: src/pages
@@ -14,6 +15,10 @@ collections_config:
     disable_add: false
     disable_add_folder: false
     disable_file_actions: false
+    filter:
+      base: strict
+      include:
+        - "*.md"
   data:
     path: src/data
     name: Site Settings
@@ -24,9 +29,11 @@ collections_config:
     disable_add: false
     disable_add_folder: false
     disable_file_actions: false
+
 _enabled_editors:
   - visual
   - data
+
 _inputs:
   title:
     type: text
@@ -78,12 +85,10 @@ _inputs:
   faq:
     type: array
     comment: FAQ items
-    hidden: true
     cascade: true
   case_studies:
     type: array
     comment: Case studies
-    hidden: true
     cascade: true
   clients:
     type: array
@@ -96,7 +101,9 @@ _inputs:
   content_blocks:
     type: array
     options:
-      structures: _structures.content_blocks
+      structures:
+        values_from_glob:
+          - /src/components/**/*.cloudcannon.structure-value.yml
     comment: Page sections
     cascade: true
   $.layout:
@@ -105,96 +112,7 @@ _inputs:
   $.content_blocks[*].cta:
     hidden: false
     cascade: true
-_structures:
-  content_blocks:
-    style: modal
-    values:
-      - icon: star
-        label: Hero
-        value:
-          _bookshop_name: hero
-          title: Hero Title
-          content: <p><strong>Hero content</strong></p>
-          cta: Get Started
-      - icon: view_carousel
-        label: Services
-        value:
-          _bookshop_name: services
-          title: Our Services
-          items:
-            - title: Service Title
-              content: <strong>Service description</strong>
-              cta: Learn More
-              image: /content-images/blackspike-wallpaper-01.avif
-              image_alt: ''
-      - icon: payments
-        label: Pricing
-        value:
-          _bookshop_name: pricing
-          title: Pricing Plans
-          plans:
-            - title: Basic Plan
-              tag: Most popular
-              content: Description
-              cta: Sign up
-              price: 999
-              services:
-                - item: Feature 1
-                - item: Feature 2
-      - icon: business
-        label: Clients
-        value:
-          _bookshop_name: clients
-          title: Our Clients
-          clients:
-            - title: Client Name
-              image: /content-images/logo-01.svg
-              link: https://example.com
-      - icon: format_quote
-        label: Testimonials
-        value:
-          _bookshop_name: testimonials
-          title: Testimonials
-          testimonials:
-            - quote: Great service!
-              handle: username
-      - icon: work
-        label: Case Studies
-        value:
-          _bookshop_name: case_studies
-          title: Case Studies
-          case_studies:
-            - title: Project Title
-              sector: Industry
-              content: <strong>Description</strong>
-              case_study_link: https://example.com
-              cta: View project
-              image: /content-images/spike.news.avif
-              image_alt: Project image
-              bg: bg-gradient-to-r from-indigo-500 to-purple-600
-      - icon: format_quote
-        label: Quote
-        value:
-          _bookshop_name: quote
-          content: This is a <strong>great quote</strong>
-          cite: John Doe
-          role: CEO, Company
-          image: /content-images/quote-man.avif
-      - icon: help
-        label: FAQ
-        value:
-          _bookshop_name: faq
-          title: FAQ
-          faq:
-            - question: Sample question?
-              answer: Sample answer
-      - icon: mail
-        label: Newsletter
-        value:
-          _bookshop_name: newsletter
-          title: Newsletter
-          content: <strong>Subscribe</strong>
-          cta: Sign up
+
 _editables:
   content:
     allow_custom_markup: false
@@ -209,11 +127,14 @@ _editables:
     redo: true
     removeformat: true
     undo: true
+
 source_editor:
   tab_size: 2
   theme: monokai
   show_gutter: true
+
 timezone: Europe/Oslo
+
 markdown:
   engine: commonmark
   options:
@@ -233,8 +154,3 @@ markdown:
     superscript: false
     heading_ids: false
     attributes: false
-postbuild:
-  - command: npx @bookshop/generate
-    label: Generate Bookshop
-component_browser:
-  show_bookshop: true

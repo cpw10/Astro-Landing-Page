@@ -5,13 +5,14 @@ const { title, faq = [] } = Astro.props
 ---
 
 <section class="bs-container bs-mt-lg grid" id="faq">
-  {title && <h2 class="bs-h2 text-center md:text-left" set:html={title} />}
+  {title && <h2 class="bs-h2 text-center md:text-left" data-editable="text" data-prop="title" set:html={title} />}
 
-  <div class="grid gap-2 bs-mt-sm">
+  <div class="grid gap-2 bs-mt-sm" data-editable="array" data-prop="faq">
     {faq?.length > 0 && faq.map(item => (
       <details
         name="faq"
-        class="group bg-bs-surface-2 hover:bg-bs-surface-3 open:bg-bs-surface-3 transition-colors w-full shadow-md rounded-lg bs-h3">
+        class="group bg-bs-surface-2 hover:bg-bs-surface-3 open:bg-bs-surface-3 transition-colors w-full shadow-md rounded-lg bs-h3"
+        data-editable="array-item">
         <summary class="flex gap-3 justify-between items-center p-6 py-5">
           <span class="select-none" set:html={item.question} />
           <span>

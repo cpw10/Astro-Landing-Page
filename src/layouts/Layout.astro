@@ -11,8 +11,11 @@ import global_settings from "../data/global_settings.json"
 import DialogModal from "../components/DialogModal.astro"
 import FooterMain from "../components/FooterMain.astro"
 import HeaderMain from "../components/HeaderMain.astro"
+import Page from "../shared/astro/page.astro"
 
-const { title, description } = Astro.props
+// Support both direct props and frontmatter from MD files
+const frontmatter = Astro.props.frontmatter || Astro.props
+const { title, description, content_blocks } = frontmatter
 
 ---
 
@@ -53,7 +56,11 @@ const { title, description } = Astro.props
 
     <!-- Main slot -->
     <main id="main">
-      <slot />
+      {content_blocks?.length > 0 ? (
+        <Page contentBlocks={content_blocks} />
+      ) : (
+        <slot />
+      )}
     </main>
 
     <!-- Footer -->

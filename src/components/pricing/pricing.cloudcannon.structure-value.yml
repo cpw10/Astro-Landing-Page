@@ -1,0 +1,82 @@
+label: Pricing Section
+icon: payments
+tags: []
+
+value:
+  _name: pricing
+  title: We do design retainers
+  plans:
+    - title: Basic plan
+      tag: Most popular
+      content: One designer, 5 days a month
+      cta: Start free trial
+      price: 999
+      services:
+        - item: Access to basic services
+        - item: Basic assets and logos
+        - item: Up to 10 individual assets
+    - title: Enterprise plan
+      tag: Best value
+      content: One team, 5 days a month
+      cta: Enquire now
+      price: 2999
+      services:
+        - item: All basic plan services
+        - item: 100 assets
+        - item: Advanced reporting
+
+_inputs:
+  title:
+    type: text
+  plans:
+    type: array
+    options:
+      structures: _structures.plan_item
+
+_structures:
+  plan_item:
+    values:
+      - value:
+          title: Plan Name
+          tag: Tag
+          content: Description
+          cta: Get Started
+          price: 0
+          services: []
+        _inputs:
+          title:
+            type: text
+          tag:
+            type: text
+          content:
+            type: text
+          cta:
+            type: text
+          price:
+            type: number
+          services:
+            type: array
+            options:
+              structures: _structures.service_line
+        preview:
+          icon: payments
+          text:
+            - key: title
+          subtext:
+            - key: tag
+  service_line:
+    values:
+      - value:
+          item: Service item
+        _inputs:
+          item:
+            type: text
+        preview:
+          icon: check
+          text:
+            - key: item
+
+preview:
+  text: Pricing Section
+  subtext:
+    - key: title

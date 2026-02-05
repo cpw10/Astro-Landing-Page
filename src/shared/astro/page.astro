@@ -1,5 +1,5 @@
 ---
-const { contentBlocks } = Astro.props;
+const { contentBlocks = [] } = Astro.props;
 const components = {};
 const componentImports = import.meta.glob("../../components/**/*.astro", {
   eager: true,
@@ -12,14 +12,15 @@ Object.entries(componentImports).forEach(([path, obj]) => {
   if (parts[parts.length - 1] === parts[parts.length - 2]) {
     parts.pop();
   }
-  const bookshopName = parts.join("/");
-  components[bookshopName] = obj.default;
+  const componentName = parts.join("/");
+  components[componentName] = obj.default;
 });
 ---
 
 <main>
-  {contentBlocks.map((block) => {
-    const Component = components[block._bookshop_name];
-    return <Component bookshop:live {...block} />;
+  {contentBlocks?.length > 0 && contentBlocks.map((block) => {
+    const Component = components[block._name];
+    if (!Component) return null;
+    return <Component {...block} />;
   })}
 </main>

@@ -2,58 +2,15 @@
 layout: ../layouts/Layout.astro
 title: blackspike astro landing page
 content_blocks:
-  - _bookshop_name: hero
+  - _name: hero
     title: blackspike astro landing page
-    case_studies:
-      - title: Powering Growth.<br>Simplifying Success.
-        sector: Web design
-        content: >-
-          <strong>Our custom web design solution helped Biotechlet Ltd elevate
-          its digital presence with a clean, modern interface and intuitive user
-          experience.</strong> <br><br>The redesigned site streamlined user
-          journeys, improved accessibility, and strengthened brand credibility.
-        case_study_link: https://www.spike.news
-        cta: Visit spike.news
-        image: /content-images/spike.news.avif
-        image_alt: iPad showing spike.news website
-        bg: bg-gradient-to-r from-indigo-500 to-purple-600
-      - title: Accelerating Innovation.<br>Empowering Results.
-        sector: Development
-        content: >-
-          Our dynamic design and build simplified productivity, delivering
-          automated solutions, seamless collaboration, and data-driven insights
-        case_study_link: https://pixelate.pictures
-        cta: Visit pixelate.pictures
-        image: /content-images/pixelate.pictures.avif
-        image_alt: iPad showing pixelated wave painting
-        bg: bg-gradient-to-r from-fuchsia-500 to-cyan-500
-      - title: Enhance productivity,<br>boost efficiency.
-        sector: 3D Design
-        content: >-
-          Create, collaborate, and render — all in one streamlined workflow.
-          Teams are connected and producing stunning visuals in minutes.
-        case_study_link: https://www.brighton.dog
-        cta: Visit brighton.dog
-        image: /content-images/brighton.dog.avif
-        image_alt: iPad showing the web page of brighton.dog
-        bg: bg-gradient-to-r from-pink-500 to-yellow-500
     content: >-
       <p><strong>A free Astro landing theme made with Tailwind</strong> to help
       kick start your Astro website.</p><p>Uses modern CSS and HTML features for
       added zip, plus a slick swiper carousel. All in Astro JSX.</p>
     cta: View Demo
-  - _bookshop_name: services
+  - _name: services
     title: Our services
-    clients:
-      - title: Clamaane
-        image: /content-images/logo-01.svg
-        link: https://www.blackspike.com/
-      - title: Komplex
-        image: /content-images/logo-02.svg
-        link: https://www.blackspike.com/
-      - title: Splashed
-        image: /content-images/logo-03.svg
-        link: https://www.blackspike.com/
     items:
       - title: We create timeless visual identities for modern brands.
         content: >-
@@ -87,20 +44,8 @@ content_blocks:
         cta: Arrange an app demo
         image: /content-images/blackspike-wallpaper-04.avif
         image_alt: ''
-  - _bookshop_name: pricing
+  - _name: pricing
     title: We do design retainers
-    faq:
-      - question: How secure is my design data?
-        answer: >-
-          We use industry-standard encryption and secure storage practices to
-          protect your creative assets. All files are encrypted with AES-256,
-          and our servers are regularly monitored and updated to prevent
-          vulnerabilities.
-      - question: Is there a free trial for design services?
-        answer: >-
-          Yes, we offer a 14-day free trial for our design platform with access
-          to core features for logo design, 3D modelling, or website
-          prototyping—no credit card required.
     plans:
       - title: Basic plan
         tag: Most popular
@@ -124,12 +69,8 @@ content_blocks:
           - item: Advanced reporting and analytics
           - item: Up to 30 individual renders
           - item: 120GB storage allowance
-  - _bookshop_name: clients
+  - _name: clients
     title: Trusted by some great companies
-    content: >-
-      <p><strong>A compelling hero description</strong> that engages
-      visitors</p>
-    cta: Get Started
     clients:
       - title: Clamaane
         image: /content-images/logo-01.svg
@@ -161,12 +102,8 @@ content_blocks:
       - title: Anorch
         image: /content-images/logo-10.svg
         link: https://www.blackspike.com/
-  - _bookshop_name: testimonials
-    title: Clients ♥ us
-    content: >-
-      <strong>We have a deep commitment to keeping your data safe.</strong> We
-      will never sell your data and will send no more than two emails a month.
-    cta: Sign up
+  - _name: testimonials
+    title: Clients love us
     testimonials:
       - quote: >-
           Sent over a logo request and had a polished concept in minutes—this
@@ -212,27 +149,8 @@ content_blocks:
           Uploaded the logo, and the final render was instant. It's seriously
           impressive!
         handle: talanbaptista
-  - _bookshop_name: case_studies
+  - _name: case_studies
     title: Case studies
-    plans:
-      - title: Basic plan
-        tag: Most popular
-        content: One designer, 5 days a month
-        cta: Start free trial
-        price: 999
-        services:
-          - item: Access to basic services
-          - item: Basic assets and logos
-          - item: Up to 10 individual assets
-      - title: Enterprise plan
-        tag: Best value
-        content: One team, 5 days a month
-        cta: Enquire now
-        price: 2999
-        services:
-          - item: All basic plan services
-          - item: 100 assets
-          - item: Advanced reporting
     case_studies:
       - title: Powering Growth.<br>Simplifying Success.
         sector: Web design
@@ -266,7 +184,7 @@ content_blocks:
         image: /content-images/brighton.dog.avif
         image_alt: iPad showing the web page of brighton.dog
         bg: bg-gradient-to-r from-pink-500 to-yellow-500
-  - _bookshop_name: quote
+  - _name: quote
     content: >-
       This <strong>design agency</strong> is a <strong>game changer</strong>.
       Its <strong>creative vision</strong>, <strong>user-focused
@@ -277,14 +195,8 @@ content_blocks:
     cite: Sean Higgins
     role: CTO, Interia
     image: /content-images/quote-man.avif
-  - _bookshop_name: faq
+  - _name: faq
     title: Frequently Asked Questions
-    items:
-      - title: We create timeless visual identities
-        content: <strong>Great companies adapt and grow.</strong>
-        cta: Call us
-        image: /content-images/blackspike-wallpaper-01.avif
-        image_alt: ''
     faq:
       - question: How secure is my design data?
         answer: >-
@@ -312,22 +224,10 @@ content_blocks:
           Our platform is fully cloud-based for convenience and collaboration.
           However, you can export your designs for offline use in standard
           formats like SVG, OBJ, and HTML/CSS.
-  - _bookshop_name: newsletter
+  - _name: newsletter
     title: Sign up for our newsletter
-    testimonials:
-      - quote: >-
-          Sent over a logo request and had a polished concept in minutes—this
-          team is pure magic!
-        handle: daviscarder
-      - quote: >-
-          Clicked a few buttons in the 3D design tool, and boom—my model came to
-          life!
-        handle: kadinwestervelt
     content: >-
       <strong>We have a deep commitment to keeping your data safe.</strong> We
       will never sell your data and will send no more than two emails a month.
     cta: Sign up
 ---
-import Page from '../shared/astro/page.astro'
-
-<Page contentBlocks={frontmatter.content_blocks} />
