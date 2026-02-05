@@ -3,14 +3,14 @@ import Check from '../../assets/theme-images/icon-check.svg'
 import Cube from '../../assets/theme-images/icon-cube.svg'
 import CubeOutline from '../../assets/theme-images/icon-cube-outline.svg'
 
-const { title, plans } = Astro.props
+const { title, plans = [] } = Astro.props
 ---
 
 <section class="bs-container bs-mt-lg" id="pricing">
   {title && <h2 class="bs-h2 text-center">{title}</h2>}
 
   <div class="mt-8 grid lg:grid-cols-2 gap-8 lg:gap-0">
-    {plans.map((item, index) => (
+    {plans?.length > 0 && plans.map((item, index) => (
       <article class:list={['@container p-6 xl:p-16 flex flex-col gap-6 h-full w-full rounded-xl overflow-hidden lg:scale-90 @xl:justify-end', index === 1 ? 'bg-white/90 text-black/90 lg:scale-none' : 'bg-bs-surface-0/90']}>
         <div class="relative">
           <h2 class="bs-h3 flex gap-3 items-center">
@@ -21,7 +21,7 @@ const { title, plans } = Astro.props
           </h2>
           <div class="text-xl flex-grow mt-4" set:html={item.content} />
           <ul role="list" class="flex flex-col gap-4 my-8">
-            {item.services.map(({ item: service }) => (
+            {item.services?.length > 0 && item.services.map(({ item: service }) => (
               <li class="flex gap-2 md:gap-3 items-center">
                 <Check height="24" width="24" />
                 <span class="text-xl">{service}</span>

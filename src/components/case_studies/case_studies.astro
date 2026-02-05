@@ -1,5 +1,5 @@
 ---
-const { title, case_studies } = Astro.props
+const { title, case_studies = [] } = Astro.props
 ---
 
 <section class="bs-container bs-mt-lg" id="case-studies">
@@ -7,7 +7,7 @@ const { title, case_studies } = Astro.props
 
   <div>
     {/* Case Study 1 */}
-    {case_studies[0] && (
+    {case_studies?.[0] && (
       <div class="bs-mt-md">
         <div class="group @container">
           <article
@@ -46,7 +46,7 @@ const { title, case_studies } = Astro.props
 
     {/* Case studies 2 & 3 */}
     <div class="mt-8 grid lg:grid-cols-2 gap-8">
-      {case_studies[1] && (
+      {case_studies?.[1] && (
         <div class="group @container">
           <article
             class:list={[
@@ -81,7 +81,7 @@ const { title, case_studies } = Astro.props
         </div>
       )}
 
-      {case_studies[2] && (
+      {case_studies?.[2] && (
         <div class="group @container">
           <article
             class:list={[

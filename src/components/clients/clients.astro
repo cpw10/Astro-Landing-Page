@@ -1,12 +1,12 @@
 ---
-const { title, clients } = Astro.props
+const { title, clients = [] } = Astro.props
 ---
 
 <section class="anim-wrapper bs-container bs-mt-lg grid">
   {title && <h2 class="bs-h2 text-center" set:html={title} />}
 
   <div class="bs-mt-md grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 place-content-center gap-4">
-    {clients.map(item => (
+    {clients?.length > 0 && clients.map(item => (
       <a
         class="group py-10 px-5 rounded-xl flex place-content-center bg-bs-surface-2/70 hover:bg-bs-surface-2 transition-colors duration-300"
         href={item.link}>
