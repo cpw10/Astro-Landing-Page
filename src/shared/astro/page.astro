@@ -17,10 +17,22 @@ Object.entries(componentImports).forEach(([path, obj]) => {
 });
 ---
 
-<main>
+<div
+  id="main-content"
+  data-editable="array"
+  data-prop="content_blocks"
+  data-id-key="_name"
+  data-component-key="_name"
+>
   {contentBlocks?.length > 0 && contentBlocks.map((block) => {
     const Component = components[block._name];
     if (!Component) return null;
-    return <Component {...block} />;
+    return (
+      <editable-array-item data-id={block._name} data-component={block._name}>
+        <editable-component data-component={block._name} data-prop="">
+          <Component {...block} />
+        </editable-component>
+      </editable-array-item>
+    );
   })}
-</main>
+</div>

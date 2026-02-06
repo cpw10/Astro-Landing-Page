@@ -13,9 +13,9 @@ const { title, content, cta } = Astro.props
     />
 
     <div class="z-10 p-6 md:p-10 lg:p-20 rounded-xl md:max-w-lg flex flex-col gap-6 bg-bs-surface-0/95 h-full">
-      <h2 class="bs-h2" data-editable="text" data-prop="title" set:html={title} />
+      <h2 class="bs-h2" set:html={title} />
 
-      <div class="bs-body-text flex-grow" data-editable="text" data-prop="content" set:html={content} />
+      <div class="bs-body-text flex-grow" set:html={content} />
 
       <form class="flex gap-4 flex-col" action="">
         <label class="sr-only" for="nl-name">Name</label>
@@ -33,7 +33,7 @@ const { title, content, cta } = Astro.props
           placeholder="Your email"
         />
 
-        <input type="submit" value={cta} class="bs-btn form-input px-4 py-3" data-editable="text" data-prop="cta" />
+        <input type="submit" value={cta} class="bs-btn form-input px-4 py-3" />
       </form>
     </div>
   </div>

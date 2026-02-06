@@ -3,16 +3,15 @@ const { title, testimonials = [] } = Astro.props
 ---
 
 <section class="bs-container bs-mt-lg">
-  {title && <h2 class="bs-h2 text-center md:text-left" data-editable="text" data-prop="title">{title}</h2>}
+  {title && <h2 class="bs-h2 text-center md:text-left">{title}</h2>}
 
-  <div class="group bs-mt-md grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 place-content-center gap-4" data-editable="array" data-prop="testimonials">
+  <div class="group bs-mt-md grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 place-content-center gap-4">
     {testimonials?.length > 0 && testimonials.map(item => (
       <blockquote
         class:list={[
           "group-hover:opacity-75 hover:opacity-100 duration-300 p-3 md:p-5 flex flex-col gap-3 justify-between border rounded-md bg-bs-surface-2 border-bs-surface-3 transition-all grid-flow-dense",
           item.quote?.length > 100 ? "lg:col-span-2" : ""
-        ]}
-        data-editable="array-item">
+        ]}>
         <p
           set:html={item.quote}
           class:list={[

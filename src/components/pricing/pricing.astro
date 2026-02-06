@@ -7,11 +7,11 @@ const { title, plans = [] } = Astro.props
 ---
 
 <section class="bs-container bs-mt-lg" id="pricing">
-  {title && <h2 class="bs-h2 text-center" data-editable="text" data-prop="title">{title}</h2>}
+  {title && <h2 class="bs-h2 text-center">{title}</h2>}
 
-  <div class="mt-8 grid lg:grid-cols-2 gap-8 lg:gap-0" data-editable="array" data-prop="plans">
+  <div class="mt-8 grid lg:grid-cols-2 gap-8 lg:gap-0">
     {plans?.length > 0 && plans.map((item, index) => (
-      <article class:list={['@container p-6 xl:p-16 flex flex-col gap-6 h-full w-full rounded-xl overflow-hidden lg:scale-90 @xl:justify-end', index === 1 ? 'bg-white/90 text-black/90 lg:scale-none' : 'bg-bs-surface-0/90']} data-editable="array-item">
+      <article class:list={['@container p-6 xl:p-16 flex flex-col gap-6 h-full w-full rounded-xl overflow-hidden lg:scale-90 @xl:justify-end', index === 1 ? 'bg-white/90 text-black/90 lg:scale-none' : 'bg-bs-surface-0/90']}>
         <div class="relative">
           <h2 class="bs-h3 flex gap-3 items-center">
             {index === 1 && <Cube height="32" width="32" />}

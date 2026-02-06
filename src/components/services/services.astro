@@ -6,7 +6,7 @@ const { title, items = [] } = Astro.props
 
 <section id="services">
   <header class="bs-container flex items-center justify-between">
-    {title && <h2 class="bs-h2" data-editable="text" data-prop="title">{title}</h2>}
+    {title && <h2 class="bs-h2">{title}</h2>}
     <nav class="bs-st-button-wrapper flex justify-center gap-4">
       <button aria-label="Previous slide" class="js-fc-btn-prev group bs-btn rounded-full !p-0 flex items-center justify-center h-10 w-10 md:h-12 md:w-12">
         <Arrow class="opacity-60 h-4 w-4 -translate-x-[2px] group-active:translate-y-[1px]" height="16" width="25" />
@@ -17,10 +17,10 @@ const { title, items = [] } = Astro.props
     </nav>
   </header>
 
-  <div class="js-fc-swiper swiper select-none bs-mt-md" data-editable="array" data-prop="items">
+  <div class="js-fc-swiper swiper select-none bs-mt-md">
     <div class="swiper-wrapper">
       {items?.length > 0 && items.map(item => (
-        <div class="swiper-slide bg-bs-surface-0 border border-bs-surface-3 rounded-xl overflow-hidden !h-auto" data-editable="array-item">
+        <div class="swiper-slide bg-bs-surface-0 border border-bs-surface-3 rounded-xl overflow-hidden !h-auto">
           <figure class="flex flex-col gap-6 isolate min-h-[50svh] md:min-h-[40rem] h-full">
             <img src={item.image} alt={item.image_alt} loading="lazy" class="opacity-20 md:opacity-80 rounded-xl grayscale overflow-hidden w-full h-full object-cover object-left absolute inset-0" height="1024" width="768" />
             <div class="hidden md:block absolute rounded-xl overflow-hidden w-full h-full object-cover object-left inset-0 bg-gradient-to-r from-bs-surface-0/90 via-bs-surface-0/60"></div>
