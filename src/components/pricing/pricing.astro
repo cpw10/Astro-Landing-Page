@@ -1,8 +1,4 @@
 ---
-import Check from '../../assets/theme-images/icon-check.svg'
-import Cube from '../../assets/theme-images/icon-cube.svg'
-import CubeOutline from '../../assets/theme-images/icon-cube-outline.svg'
-
 const { title, plans = [] } = Astro.props
 ---
 
@@ -14,8 +10,8 @@ const { title, plans = [] } = Astro.props
       <article class:list={['@container p-6 xl:p-16 flex flex-col gap-6 h-full w-full rounded-xl overflow-hidden lg:scale-90 @xl:justify-end', index === 1 ? 'bg-white/90 text-black/90 lg:scale-none' : 'bg-bs-surface-0/90']}>
         <div class="relative">
           <h2 class="bs-h3 flex gap-3 items-center">
-            {index === 1 && <Cube height="32" width="32" />}
-            {index !== 1 && <CubeOutline height="32" width="32" />}
+            {index === 1 && <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512"><path fill="currentColor" d="M440.9 136.3a4 4 0 0 0 0-6.91L288.16 40.65a64.14 64.14 0 0 0-64.33 0L71.12 129.39a4 4 0 0 0 0 6.91L254 243.88a4 4 0 0 0 4.06 0ZM54 163.51a4 4 0 0 0-6 3.49v173.89a48 48 0 0 0 23.84 41.39L234 479.51a4 4 0 0 0 6-3.46V274.3a4 4 0 0 0-2-3.46ZM272 275v201a4 4 0 0 0 6 3.46l162.15-97.23A48 48 0 0 0 464 340.89V167a4 4 0 0 0-6-3.45l-184 108a4 4 0 0 0-2 3.45"/></svg>}
+            {index !== 1 && <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M448 341.37V170.61A32 32 0 0 0 432.11 143l-152-88.46a47.94 47.94 0 0 0-48.24 0L79.89 143A32 32 0 0 0 64 170.61v170.76A32 32 0 0 0 79.89 369l152 88.46a48 48 0 0 0 48.24 0l152-88.46A32 32 0 0 0 448 341.37"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="m69 153.99l187 110l187-110m-187 310v-200"/></svg>}
             <span>{item.title}</span>
             <div class="text-xs uppercase tracking-widest font-semibold hidden sm:block ms-auto rounded-full px-4 py-2 pb-[0.4rem] border border-bs-foreground-dark/30" set:html={item.tag} />
           </h2>
@@ -23,7 +19,7 @@ const { title, plans = [] } = Astro.props
           <ul role="list" class="flex flex-col gap-4 my-8">
             {item.services?.length > 0 && item.services.map(({ item: service }) => (
               <li class="flex gap-2 md:gap-3 items-center">
-                <Check height="24" width="24" />
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m10.6 16.6l7.05-7.05l-1.4-1.4l-5.65 5.65l-2.85-2.85l-1.4 1.4zM12 22q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"/></svg>
                 <span class="text-xl">{service}</span>
               </li>
             ))}
