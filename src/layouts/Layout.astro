@@ -44,6 +44,14 @@ const { title, description, content_blocks } = frontmatter
   </head>
 
   <body id="top">
+    <script>
+      // Lazy load CloudCannon component registration only when in editor mode
+      if (window?.inEditorMode) {
+        import("../scripts/register-components.ts").catch((error) => {
+          console.warn("Failed to load CloudCannon component registration:", error);
+        });
+      }
+    </script>
 
     <!-- Skip link -->
     <a class="fixed -top-20 focus-visible:top-0 p-3 bg-black/90 transition-all duration-300" href="#main">Skip to content</a>
